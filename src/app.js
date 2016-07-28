@@ -1,5 +1,6 @@
 import PIXI from 'pixi.js';
 import config from './config';
+import Entity from './Entity';
 import Note from './Note';
 import Player from './Player';
 
@@ -29,14 +30,13 @@ stage.addChild(bg);
 stage.addChild(player);
 let time = Date.now();
 let timeElapsed = 0;
-let notes = [];
 
 setInterval(() => {
-    const note = new Note();
-    note.position.x = config.width / 2.0;
-    note.position.y = 0.0;
+    const note = new Note({
+        x: config.width / 2.0 + Math.random() * config.width / 2.0 - config.width / 4.0,
+        y: 0
+    });
     stage.addChild(note);
-    notes.push(note);
 }, 1000);
 
 const animate = () => {
@@ -58,16 +58,15 @@ const animate = () => {
         timeElapsed -= 1000;
     }
 
-    notes.forEach(note => {
-        note.update(delta);
+    stage.children.forEach(child => {
+        if (child instanceof Entity) {
+            child.update(delta);
 
-        if (note.position.y > config.height) {
-            stage.removeChild(note);
-            deadNotes.push(note);
+            if (!child.alive) {
+                stage.removeChild(child);
+            }
         }
     });
-
-    notes = notes.filter(note => !deadNotes.includes(note));
 
     renderer.render(stage);
 };
