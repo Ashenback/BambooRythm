@@ -1,4 +1,5 @@
-# ${1:Project Name}
+# Game Base
+A Game Base for Pixi JS
 
 ## Including
 * Webpack setup
