@@ -1,12 +1,18 @@
 import Entity from './Entity';
 
 export default class Player extends Entity {
-    constructor() {
-        super();
+    hitArea;
 
-        const sprite = PIXI.Sprite.fromImage('res/bunny.png');
-        sprite.anchor.x = 0.5;
-        sprite.anchor.y = 0.5;
-        this.addChild(sprite);
+    constructor({x, y, width, height}) {
+        super();
+        this.x = x;
+        this.y = y;
+
+        this.hitArea = new PIXI.Graphics();
+        this.hitArea.lineStyle(2, 0xFF00FF, 1);
+        this.hitArea.beginFill(0xFF00BB, 0.25);
+        this.hitArea.drawRoundedRect(0, 0, width, height, 15);
+        this.hitArea.endFill();
+        this.addChild(this.hitArea);
     }
 }

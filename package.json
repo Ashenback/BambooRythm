@@ -4,13 +4,14 @@
   "description": "MMO game using PixiJS",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch",
+    "watch": "webpack -d --watch",
     "dev": "webpack-dev-server --inline --hot --content-base build/ --port 80"
   },
   "dependencies": {
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-1": "^6.5.0",
     "brfs": "^1.4.3",
     "json-loader": "^0.5.4",
     "pixi.js": "^3.0.11",
