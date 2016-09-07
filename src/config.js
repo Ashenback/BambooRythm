@@ -1,4 +1,4 @@
 export default {
-    width: 400,
-    height: window.innerHeight
-}
+	width: 400,
+	height: window.innerHeight
+};

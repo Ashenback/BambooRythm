@@ -1,4 +1,4 @@
-import PIXI from 'pixi.js';
+
 import fragSrc from '../../res/shader/BurningShip.frag';
 
 function BurningShip(uniforms) {

@@ -1,28 +1,48 @@
 {
-  "name": "mmo",
+  "name": "BambooRhythm",
   "version": "0.0.1",
-  "description": "MMO game using PixiJS",
+  "description": "Rhythm game using PixiJS",
   "scripts": {
     "build": "webpack",
     "watch": "webpack -d --watch",
     "dev": "webpack-dev-server --inline --hot --content-base build/ --port 80"
   },
   "dependencies": {
-    "babel-core": "^6.11.4",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-stage-1": "^6.5.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-stage-1": "^6.13.0",
     "brfs": "^1.4.3",
+    "glslify": "^5.1.0",
+    "ify": "^2.1.0",
     "json-loader": "^0.5.4",
-    "pixi.js": "^3.0.11",
+    "pixi.js": "^4.0.0",
     "raw-loader": "^0.5.1",
+    "react": "^15.3.1",
     "transform-loader": "^0.2.3",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-react": "^6.2.0",
     "httpster": "^1.0.3",
     "webpack-dev-server": "^1.14.1"
   },
   "author": "Joakim Askenbäck",
-  "license": "ISC"
+  "license": "ISC",
+  "browserify": {
+	"transform": [
+	  "glslify",
+	  "brfs"
+	]
+  }
 }
